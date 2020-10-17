@@ -1,0 +1,134 @@
+<!-- FORM -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>| TOP 10 |</title>
+	<link rel="shortcut icon" type="image/jpg" href="compass-icon.jpg">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@500&family=Sacramento&display=swap" rel="stylesheet">
+ 
+	    <link rel="stylesheet" type="text/css" href="SignIN.css">
+	     
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+	
+</head>
+<body>
+<div class="header" style="background-color:#212529;color: white">
+	<br>
+   <h1 style="margin-left: 20px;font-size: 40px">| TOP 10 | <a href="index.html" class="btn btn-success btn-lg active" role="button" aria-pressed="true" style="float: right;margin-right: 20px">Home</a> </h1><br>
+</div>
+<br>
+
+	<br>
+<center><div class="loginbox">
+	<form  method="post" name="registration" id="registration" onsubmit="return validation()" >
+
+			<div class="items"><br>
+				<h1>SIGN IN</h1>
+
+				<br>
+				<div >
+					<div>
+						
+						<input type="text" name="FName" placeholder="UserName" style="width: 60%;" class="boxx form-control" autocomplete="off" id="fname">
+						<span id="erfname" style="color: red;"> </span>
+					</div><br>
+
+					<div>
+						
+						<input type="Email" name="mail" placeholder="Email id" style="width: 60%;" class="boxx form-control" autocomplete="off" id="email">
+						<span id="eremail" style="color: red;"></span>
+					</div><br>
+
+					<div>
+						
+						<input type="number" name="num" placeholder="Mobile no." style="width: 60%;" class="boxx form-control" id="phone" autocomplete="off">
+						<span id="erphone" style="color: red;"></span>
+					</div><br>
+
+					
+					<div>
+						<input type="password" style="width: 60%" placeholder="Password" class="boxx form-control" id="mess" name="mess"></textarea>
+						<span id="ermess" style="color: red;"></span>
+					</div>
+				</div>
+
+				<br>
+				<input type="submit" name="Submit " onclick="submitForm()">
+				<br><br>
+			</div>
+			      <script>
+			      
+                  function submitForm() {
+                  // document.registration.submit();
+                  if(validation())
+                  {
+                  	alert("Confirm Submission");
+                  	return true;
+                  }
+                  return false;
+                  // document.serviceform.reset();
+                  // alert("Hello");
+              	}
+              function validation(){
+                  var first = document.getElementById('fname').value;
+					// var last = document.getElementById('lname').value;
+					var mail = document.getElementById('email').value;
+					var num = document.getElementById('phone').value;
+					// var subj = document.getElementById('sub').value;
+					var mg = document.getElementById('mess').value;
+
+					first=first.trim();
+					// last=last.trim();
+					mail=mail.trim();
+					// subj=subj.trim();
+					mg=mg.trim();
+
+					// FIRST NAME
+					if (first == "") {
+						document.getElementById('erfname').innerHTML ="*Please fill the First Name field";
+						return false;
+					}
+					else{
+						return true;
+					}
+					if ((first.length < 2)) {
+						document.getElementById('erfname').innerHTML ="*First Name must be atleast 2 characters long";
+						return false;
+					}
+					if (!isNaN(first)) {
+						document.getElementById('erfname').innerHTML ="*Please enter characters only";
+						return false;
+					}
+
+					// EMAIL
+					if (mail == "") {
+						document.getElementById('eremail').innerHTML ="*Please fill the Email field";
+						return false;
+					}
+					
+					
+					// PHONE
+					if ((num < 1000000000)|| (num > 9999999999)) {
+						document.getElementById('erphone').innerHTML ="*Please fill 10 digit number";
+						return false;
+					}
+
+					// MESSAGE
+					if (meg == "") {
+						document.getElementById('ermess').innerHTML ="*Please fill the Message field";
+						return false;
+					}
+					if (meg.length > 500) {
+						document.getElementById('ermess').innerHTML ="*Message must be atmost 500 characters long";
+						return false;
+					}
+				}
+      			</script>
+	</form>
+</div></center>
+<br>
+</body>
+</html>
